@@ -18,7 +18,8 @@ class CreateItemsTable extends Migration
             $table->string('name');
             $table->unsignedInteger('category_id');
             $table->string('description_sm');
-            $table->text('description_lg');
+            $table->text('description_lg')->nullable();
+            $table->integer('quantity');
             $table->double('price');
             $table->double('discount')->default(0);
             $table->integer('status')->default(1);

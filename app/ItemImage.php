@@ -5,29 +5,24 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Validator;
 
-class CartItem extends Model
+class ItemImage extends Model
 {
-    protected $table = 'cart_item';
+    protected $table = 'item_images';
 
     protected $fillable = [
-        'user_id',
         'item_id',
-        'quantity',
+        'url'
     ];
 
     public function validate($data){
         return Validator::make($data,[
-           'user_id' => 'required',
            'item_id' => 'required',
-           'quantity' => 'required'
+           'url' => 'required'
         ]);
     }
 
-    public function user(){
-        return $this->belongsTo(User::class);
-    }
-
-    public function item(){
+    public function item()
+    {
         return $this->belongsTo(Item::class);
     }
 }
