@@ -1,0 +1,211 @@
+/*----------------------------------------------------*/
+/* Footer Area css
+============================================================================================ */
+.footer_widgets_area {
+  background: #ffffff;
+  overflow: hidden;
+  padding: 0px 0px;
+}
+
+.f_w_title {
+  padding-bottom: 25px;
+}
+
+.f_w_title h3 {
+  color: #6b6b6b;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.subscribe_widget p {
+  font-size: 14px;
+  line-height: 26px;
+  color: #8a8496;
+  font-weight: 300;
+  padding-bottom: 20px;
+}
+
+.subscribe_widget .input-group input {
+  background: #2b2e3d;
+  border: none;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  height: 40px;
+  border-radius: 3px;
+  font-size: 12px;
+  color: #b5aec4;
+  padding: 0px 15px;
+}
+
+.subscribe_widget .input-group input.placeholder {
+  font-size: 12px;
+  color: #b5aec4;
+}
+
+.subscribe_widget .input-group input:-moz-placeholder {
+  font-size: 12px;
+  color: #b5aec4;
+}
+
+.subscribe_widget .input-group input::-moz-placeholder {
+  font-size: 12px;
+  color: #b5aec4;
+}
+
+.subscribe_widget .input-group input::-webkit-input-placeholder {
+  font-size: 12px;
+  color: #b5aec4;
+}
+
+.subscribe_widget ul {
+  margin-left: -40px;
+}
+
+.subscribe_widget ul li {
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.subscribe_widget ul li a {
+  font-size: 14px;
+  color: #6c687a;
+  -webkit-transition: all 400ms linear 0s;
+  -o-transition: all 400ms linear 0s;
+  transition: all 400ms linear 0s;
+}
+
+.subscribe_widget ul li:hover a {
+  color: #ceab56;
+}
+
+.subscribe_widget ul li:last-child {
+  margin-right: 0px;
+}
+
+.categories_widget {
+  margin-left: 70px;
+}
+
+.categories_widget ul {
+  list-style-type: none;
+  width: calc(100% / 2);
+  float: left;
+  margin-top: -4px;
+}
+
+.categories_widget ul li a {
+  position: relative;
+  font-size: 14px;
+  color: #797386;
+  line-height: 36px;
+  -webkit-transition: all 400ms linear 0s;
+  -o-transition: all 400ms linear 0s;
+  transition: all 400ms linear 0s;
+}
+
+.categories_widget ul li a i {
+  position: absolute;
+  left: 0px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  opacity: 0;
+  -webkit-transition: all 400ms linear 0s;
+  -o-transition: all 400ms linear 0s;
+  transition: all 400ms linear 0s;
+}
+
+.categories_widget ul li:hover a {
+  padding-left: 15px;
+  color: #ceab56;
+}
+
+.categories_widget ul li:hover a i {
+  opacity: 1;
+}
+
+.contact_widget {
+  margin-left: 50px;
+}
+
+.contact_widget a, .contact_widget p, .contact_widget h6 {
+  font-size: 14px;
+  color: #888294;
+  -webkit-transition: all 400ms linear 0s;
+  -o-transition: all 400ms linear 0s;
+  transition: all 400ms linear 0s;
+}
+
+.contact_widget a:hover, .contact_widget p:hover, .contact_widget h6:hover {
+  color: #ceab56;
+}
+
+.contact_widget p {
+  padding: 23px 0px;
+}
+
+.copy_right_area {
+  background: #f3f3f3;
+  overflow: hidden;
+}
+
+.copy_right_area .float-md-left h5 {
+  color: #51545f;
+  font-size: 14px;
+  line-height: 50px;
+}
+
+.copy_right_area .float-md-left h5 a {
+  -webkit-transition: all 400ms linear 0s;
+  -o-transition: all 400ms linear 0s;
+  transition: all 400ms linear 0s;
+  color: #51545f;
+  font-size: 14px;
+  line-height: 50px;
+}
+
+.copy_right_area .float-md-left h5 a:hover {
+  color: #ceab56;
+}
+
+.copy_right_area .float-md-right .nav li {
+  margin-right: 35px;
+}
+
+.copy_right_area .float-md-right .nav li a {
+  padding: 0px;
+  line-height: 50px;
+  font-size: 14px;
+  color: #51545f;
+  -webkit-transition: all 400ms linear 0s;
+  -o-transition: all 400ms linear 0s;
+  transition: all 400ms linear 0s;
+}
+
+.copy_right_area .float-md-right .nav li:last-child {
+  margin-right: 0px;
+}
+
+.copy_right_area .float-md-right .nav li:hover a {
+  color: #ceab56;
+}
+/* End Footer Area css
+============================================================================================ */
+/*---------------------------------------------------- */
+
+
+/*----------------------------------------------------*/
+/* Owl Carousel custom css
+============================================================================================ */
+.owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span{
+  background: #ceab56 !important;
+}
+.owl-theme .owl-dots .owl-dot span{
+  width: 13px !important;
+  height: 13px !important;
+}
+
+/* End Owl Carousel css
+============================================================================================ */

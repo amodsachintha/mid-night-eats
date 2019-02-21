@@ -45,7 +45,7 @@ class Item extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function itemImage()
+    public function itemImages()
     {
         return $this->hasMany(ItemImage::class);
     }

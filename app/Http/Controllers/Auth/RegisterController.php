@@ -28,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -43,7 +43,7 @@ class RegisterController extends Controller
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
+     * @param  array $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
@@ -60,15 +60,24 @@ class RegisterController extends Controller
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
+     * @param  array $data
      * @return \App\User
      */
     protected function create(array $data)
     {
+        $gender = $data['gender'];
+        if (strcmp($gender, 'male') == 0) {
+            $avatar = 'user-default-male.png';
+        } elseif (strcmp($gender, 'female') == 0) {
+            $avatar = 'user-default-female.png';
+        } else {
+            $avatar = 'user-default.png';
+        }
         return User::create([
             'fname' => $data['fname'],
             'lname' => $data['lname'],
             'gender' => $data['gender'],
+            'avatar' => $avatar,
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
