@@ -15,7 +15,13 @@ class CreateOrderMenusTable extends Migration
     {
         Schema::create('order_menus', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('order_id');
+            $table->unsignedInteger('menu_id');
+            $table->integer('quantity');
             $table->timestamps();
+
+            $table->foreign('order_id')->references('id')->on('orders');
+            $table->foreign('menu_id')->references('id')->on('menus');
         });
     }
 

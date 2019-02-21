@@ -19,5 +19,9 @@ Auth::routes([
     'verify'=>true
 ]);
 
+Route::get('/login/{provider}', 'Auth\LoginController@redirectToProvider')->name('oauth.login');
+Route::get('/login/{provider}/callback', 'Auth\LoginController@handleProviderCallback')->name('facebook.callback');
+Route::post('/user/password', 'UserController@createPassword')->name('create.password');
+
 Route::get('/home', 'HomeController@index')->name('home');
 

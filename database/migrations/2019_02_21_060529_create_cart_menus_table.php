@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAddressesTable extends Migration
+class CreateCartMenusTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,15 @@ class CreateAddressesTable extends Migration
      */
     public function up()
     {
-        Schema::create('addresses', function (Blueprint $table) {
+        Schema::create('cart_menus', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('user_id');
-            $table->string('phone');
-            $table->string('address_line_1');
-            $table->string('address_line_2')->nullable();
-            $table->string('address_line_3')->nullable();
-            $table->unsignedInteger('city_id');
-            $table->integer('status')->default(1);
+            $table->unsignedInteger('menu_id');
+            $table->integer('quantity')->default(1);
             $table->timestamps();
 
-            $table->foreign('city_id')->references('id')->on('cities');
             $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('menu_id')->references('id')->on('menus');
         });
     }
 
@@ -36,6 +32,6 @@ class CreateAddressesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('addresses');
+        Schema::dropIfExists('cart_menus');
     }
 }

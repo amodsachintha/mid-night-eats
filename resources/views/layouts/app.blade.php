@@ -10,6 +10,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
+
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
@@ -18,11 +19,13 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/matiria.min.css') }}" rel="stylesheet">
+    <link href="{{asset('css/toastr.min.css')}}" rel="stylesheet"/>
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
-            <div class="container">
+        <nav class="navbar navbar-expand-md navbar-light navbar-laravel container shadow-sm">
+            <div class="container" style="margin-bottom: -15px; margin-top: -15px;">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
@@ -49,11 +52,14 @@
                                 </li>
                             @endif
                         @else
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Test</a>
+                            </li>
+
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->fname }} <span class="caret"></span>
+                                    <span><img src="/img/avatars/thumbnails/{{Auth::user()->avatar}}" width="35px" style="border-radius: 50%; margin-top: -7px" /></span>
                                 </a>
-
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
@@ -76,5 +82,9 @@
             @yield('content')
         </main>
     </div>
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script src="{{asset('js/toastr.min.js')}}"></script>
+    @toastr_render
 </body>
+
 </html>
