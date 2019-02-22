@@ -21,3 +21,23 @@ Route::post('/user/password', 'UserController@createPassword')->name('create.pas
 
 Route::get('/', 'HomeController@index')->name('home');
 
+Route::post('/post-test',function (){
+   return response()->json(['msg'=>'ok']);
+});
+
+//Cart routes
+Route::get('/cart','CartController@index')->name('cart.index');
+Route::post('/cart/add/item','CartItemController@addToCart')->name('addToCart.item');
+Route::post('/cart/add/menu','CartMenuController@addToCart')->name('addToCart.menu');
+
+Route::post('/cart/remove/item','CartItemController@removeFromCart')->name('removeFromCart.item');
+Route::post('/cart/remove/menu','CartMenuController@removeFromCart')->name('removeFromCart.menu');
+
+Route::post('/cart/update/item','CartItemController@updateQuantity')->name('updateQuantity.item');
+Route::post('/cart/update/menu','CartMenuController@updateQuantity')->name('updateQuantity.item');
+
+//Profile routes
+Route::get('/profile/overview','ProfileController@index')->name('profile.index');
+Route::get('/profile/orders','ProfileController@orders')->name('profile.orders');
+Route::get('/profile/settings','ProfileController@settings')->name('profile.settings');
+Route::get('/profile/help','ProfileController@help')->name('profile.help');

@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Validator;
 
 class CartItem extends Model
 {
-    protected $table = 'cart_item';
+    protected $table = 'cart_items';
 
     protected $fillable = [
         'user_id',

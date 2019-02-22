@@ -1,25 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-    <style>
-        .item {
-            margin: 3px;
-        }
-
-        #owl-demo .item img{
-            display: block;
-            width: 100%;
-            height: auto;
-        }
-    </style>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
 
                 <div id="owl-demo" class="owl-carousel owl-theme">
-                    <div class="item"><img src="http://www.lorempixel.com/900/300" alt="Owl Image"></div>
-                    <div class="item"><img src="http://www.lorempixel.com/900/310" alt="Owl Image"></div>
-                    <div class="item"><img src="http://www.lorempixel.com/900/305" alt="Owl Image"></div>
+                    <div class="item img-thumbnail"><img src="http://www.lorempixel.com/900/300" alt="Owl Image"></div>
+                    <div class="item img-thumbnail"><img src="http://www.lorempixel.com/900/310" alt="Owl Image"></div>
+                    <div class="item img-thumbnail"><img src="http://www.lorempixel.com/900/305" alt="Owl Image"></div>
                 </div>
 
 
@@ -65,7 +54,7 @@
 
                 <ul class="nav nav-pills  mb-3 nav-fill" id="myTab" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Items <span
+                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Burgers <span
                                     class="badge badge-warning">{{$items->count()}}</span></a>
                     </li>
                     <li class="nav-item">
@@ -83,30 +72,32 @@
                 </ul>
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                        <div class="owl-carousel owl-theme" id="owl-carousel-featured">
+                        <div class="owl-carousel owl-theme card-deck" id="owl-carousel-featured">
                             @foreach($items as $item)
-                                <div class="item shadow card" style="min-height: 530px">
+                                <div class="item shadow card mb-3" style="min-height: 580px">
                                     <img class="card-img-top" src="{{asset('img/items/'.$item->itemImages->first()->url)}}" alt="Card image cap">
                                     <div class="card-body bg-white" style="margin-top: -20px">
-                                        <h4 class="card-title">{{$item->name}} <span class="badge badge-warning">Item</span></h4>
+                                        <h4 class="card-title">{{$item->name}}</h4>
+                                        <h6 class="card-subtitle text-muted"><span class="badge badge-warning">Item</span></h6>
                                         <p class="card-text">{{$item->description_sm}}</p>
                                     </div>
                                     <div class="card-footer justify-content-between d-flex">
-                                        <button class="btn btn-sm btn-outline-primary"><i class="fal fa-eye"></i></button>
+                                        <a href="#" class="btn btn-link text-info"><i class="fal fa-eye fa-2x"></i></a>
                                         <h3><span class="badge badge-secondary">Rs.{{number_format($item->price,2)}}</span></h3>
-                                        <button class="btn btn-sm btn-outline-success"><i class="fal fa-shopping-cart"></i></button>
+                                        <a class="btn btn-link text-success" onclick="addItemToCart('{{$item->id}}')"><i class="fal fa-shopping-cart fa-2x"></i></a>
                                     </div>
                                 </div>
                             @endforeach
                         </div>
                     </div>
                     <div class="tab-pane fade p-2" id="profile" role="tabpanel" aria-labelledby="profile-tab" style="border: none">
-                        <div class="owl-carousel owl-theme" id="owl-carousel-menus">
+                        <div class="owl-carousel owl-theme card-deck" id="owl-carousel-menus">
                             @foreach($menus as $menu)
-                                <div class="item shadow card" style="min-height: 550px">
+                                <div class="item shadow card mb-3" style="min-height: 680px">
                                     <img class="card-img-top" src="{{asset('img/menus/'.$menu->image)}}" alt="Card image cap" style="width: 100%">
                                     <div class="card-body bg-white" style="margin-top: -20px">
-                                        <h4 class="card-title">{{$menu->name}} <span class="badge badge-light">Menu</span></h4>
+                                        <h4 class="card-title">{{$menu->name}}</h4>
+                                        <h6 class="card-subtitle text-muted"><span class="badge badge-warning">Menu</span></h6>
                                         <p class="card-text">{{$menu->description_sm}}</p>
                                         <ul>
                                             @foreach($menu->items as $item)
@@ -120,9 +111,9 @@
                                         </ul>
                                     </div>
                                     <div class="card-footer justify-content-between d-flex">
-                                        <button class="btn btn-sm btn-outline-primary"><i class="fal fa-eye"></i></button>
+                                        <a class="btn btn-link text-info"><i class="fal fa-eye fa-2x"></i></a>
                                         <h3><span class="badge badge-secondary">Rs.{{number_format($menu->price,2)}}</span></h3>
-                                        <button class="btn btn-sm btn-outline-success"><i class="fal fa-shopping-cart"></i></button>
+                                        <a class="btn btn-link text-success" onclick="addMenuToCart('{{$menu->id}}')"><i class="fal fa-shopping-cart fa-2x"></i></a>
                                     </div>
                                 </div>
                             @endforeach
@@ -132,7 +123,4 @@
             </div>
         </div>
     </div>
-    <script>
-
-    </script>
 @endsection

@@ -13,7 +13,7 @@ class MenuSeeder extends Seeder
     public function run()
     {
         DB::table('menus')->insert([
-            'name' => 'test 1',
+            'name' => 'Menu 1',
             'image' => '1.png',
             'description_sm' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus tristique aliquam.',
             'price' => 770,
@@ -23,7 +23,7 @@ class MenuSeeder extends Seeder
         ]);
 
         DB::table('menus')->insert([
-            'name' => 'test 2',
+            'name' => 'Menu 2',
             'image' => '2.png',
             'description_sm' => 'Nullam aliquam interdum risus id bibendum. Donec quam risus, pharetra sed leo ac, interdum cursus ex.',
             'price' => 350,

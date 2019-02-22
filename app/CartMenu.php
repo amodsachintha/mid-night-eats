@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Validator;
 
 class CartMenu extends Model
 {
-    protected $table = 'cart_menu';
+    protected $table = 'cart_menus';
 
     protected $fillable = [
         'user_id',

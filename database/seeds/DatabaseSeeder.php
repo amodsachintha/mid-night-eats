@@ -17,5 +17,10 @@ class DatabaseSeeder extends Seeder
         $this->call(ItemImageSeeder::class);
         $this->call(MenuSeeder::class);
         $this->call(ItemMenuSeeder::class);
+        $this->call(DriverSeeder::class);
+        $this->call(AddressSeeder::class);
+        $this->call(OrderSeeder::class);
+        $this->call(OrderItemSeeder::class);
+        $this->call(OrderMenuSeeder::class);
     }
 }

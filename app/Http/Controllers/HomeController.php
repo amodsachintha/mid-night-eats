@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Item;
 use App\Menu;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -27,9 +28,16 @@ class HomeController extends Controller
     {
         $items = Item::where('status',1)->get();
         $menus = Menu::where('status',1)->get();
+        if(Auth::check()){
+            $cartCount = Auth::user()->cartItems->count() + Auth::user()->cartMenus->count();
+        }else
+            $cartCount = 0;
+
         return view('home.home',[
+            'title' => 'Home',
             'items' => $items,
             'menus' => $menus,
+            'cartCount' => $cartCount,
         ]);
     }
 }

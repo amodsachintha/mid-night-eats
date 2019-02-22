@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Validator;
 
 class Address extends Model
 {
-    protected $table = 'address';
+    protected $table = 'addresses';
 
     protected $fillable = [
         'user_id',

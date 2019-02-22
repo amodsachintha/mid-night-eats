@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ isset($title) ? $title : config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/jquery.min.js') }}"></script>
@@ -21,13 +21,16 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-{{--    <link href="{{ asset('css/minty.min.css') }}" rel="stylesheet">--}}
+    <link href="{{ asset('css/minty.min.css') }}" rel="stylesheet">
 {{--    <link href="{{ asset('css/sandstone.min.css') }}" rel="stylesheet">--}}
-    <link href="{{ asset('css/united.min.css') }}" rel="stylesheet">
+{{--    <link href="{{ asset('css/united.min.css') }}" rel="stylesheet">--}}
+{{--    <link href="{{ asset('css/matiria.min.css') }}" rel="stylesheet">--}}
     <link href="{{asset('css/toastr.min.css')}}" rel="stylesheet"/>
     <link href="{{asset('css/owl.carousel.min.css')}}" rel="stylesheet">
     <link href="{{asset('css/owl.theme.default.min.css')}}" rel="stylesheet">
     <link href="{{asset('fa/css/all.css')}}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{asset('datatables/datatables.min.css')}}"/>
+    <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap-select.min.css')}}">
 </head>
 <body>
 
@@ -63,7 +66,9 @@
                         @endif
                     @else
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Test</a>
+                            <a class="nav-link" href="{{route('cart.index')}}">
+                                <i class="far fa-shopping-cart fa-2x"></i><span id="cart-count"><strong> {{$cartCount}}</strong></span>
+                            </a>
                         </li>
 
                         <li class="nav-item dropdown">
@@ -71,6 +76,12 @@
                                 <span><img src="/img/avatars/thumbnails/{{Auth::user()->avatar}}" width="35px" style="border-radius: 50%; margin-top: -7px"/></span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+
+                                <a class="dropdown-item" href="{{route('profile.index')}}">My Account</a>
+
+
+
+
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -95,9 +106,12 @@
 
 @include('layouts.footer')
 
+<script src="{{asset('js/axios.min.js')}}" defer></script>
 <script src="{{asset('js/owl.carousel.min.js')}}" defer></script>
 <script src="{{asset('js/toastr.min.js')}}"></script>
-<script src="{{asset('js/custom.js')}}"></script>
 @toastr_render
+<script src="{{asset('datatables/datatables.min.js')}}" defer></script>
+<script src="{{asset('js/custom.js')}}"></script>
+<script src="{{asset('js/bootstrap-select.min.js')}}" defer></script>
 </body>
 </html>
