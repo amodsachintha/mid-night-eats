@@ -20,6 +20,7 @@ class CreateOrdersTable extends Migration
             $table->unsignedInteger('address_id');
             $table->unsignedInteger('driver_id')->nullable();
             $table->string('payment_type');
+            $table->integer('payment_status')->default(1);
             $table->double('amount');
             $table->integer('status')->default(4);
             $table->timestamps();

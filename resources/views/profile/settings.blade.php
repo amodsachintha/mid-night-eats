@@ -36,7 +36,7 @@
                                 <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Confirm new password" required>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-success btn-block">Submit</button>
+                        <button type="submit" class="btn btn-success btn-block">Save Changes</button>
                     </form>
                 </div>
             </div>
@@ -73,7 +73,7 @@
                                 </select>
                             </div>
                         </fieldset>
-                        <button type="submit" class="btn btn-success btn-block">Submit</button>
+                        <button type="submit" class="btn btn-success btn-block">Save Changes</button>
                     </form>
                 </div>
 

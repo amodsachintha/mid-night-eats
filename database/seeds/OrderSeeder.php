@@ -14,7 +14,7 @@ class OrderSeeder extends Seeder
     {
         $payTypes = ['CC', 'COD'];
         DB::table('orders')->insert([
-            'order_code' => md5(random_bytes(8)),
+            'order_code' => '2019-02-22/ECF2',
             'user_id' => rand(1, 2),
             'address_id' => rand(1, 3),
             'driver_id' => rand(1, 3),
@@ -26,7 +26,7 @@ class OrderSeeder extends Seeder
         ]);
 
         DB::table('orders')->insert([
-            'order_code' => md5(random_bytes(8)),
+            'order_code' => '2019-02-22/CD23',
             'user_id' => rand(1, 2),
             'address_id' => rand(1, 3),
             'driver_id' => rand(1, 3),
@@ -38,7 +38,7 @@ class OrderSeeder extends Seeder
         ]);
 
         DB::table('orders')->insert([
-            'order_code' => md5(random_bytes(8)),
+            'order_code' =>'2019-02-22/FFE2',
             'user_id' => rand(1, 2),
             'address_id' => rand(1, 3),
             'driver_id' => rand(1, 3),
@@ -50,7 +50,7 @@ class OrderSeeder extends Seeder
         ]);
 
         DB::table('orders')->insert([
-            'order_code' => md5(random_bytes(8)),
+            'order_code' => '2019-02-22/VB3F',
             'user_id' => rand(1, 2),
             'address_id' => rand(1, 3),
             'driver_id' => rand(1, 3),
@@ -62,7 +62,7 @@ class OrderSeeder extends Seeder
         ]);
 
         DB::table('orders')->insert([
-            'order_code' => md5(random_bytes(8)),
+            'order_code' => '2019-02-22/45F1',
             'user_id' => rand(1, 2),
             'address_id' => rand(1, 3),
             'driver_id' => rand(1, 3),

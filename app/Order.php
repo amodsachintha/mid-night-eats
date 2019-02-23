@@ -15,6 +15,7 @@ class Order extends Model
         'address_id',
         'driver_id',
         'payment_type',
+        'payment_status',
         'amount',
     ];
 
@@ -26,6 +27,7 @@ class Order extends Model
             'address_id' => 'required',
             'driver_id' => 'required',
             'payment_type' => 'required',
+            'payment_status' => 'required',
             'amount' => 'required'
         ]);
     }

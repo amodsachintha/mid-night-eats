@@ -18,32 +18,40 @@ class ProfileController extends Controller
     public function index()
     {
         $cartCount = Auth::user()->cartItems->count() + Auth::user()->cartMenus->count();
+        $activeOrderCount = Auth::user()->orders->whereIn('status', [1, 2])->count();
+        $activeOrders = Auth::user()->orders->whereIn('status', [1, 2]);
         return view('profile.index', [
             'title' => 'Profile',
             'cartCount' => $cartCount,
-            'user' => Auth::user()
+            'user' => Auth::user(),
+            'activeOrderCount' => $activeOrderCount,
+            'activeOrders'=>$activeOrders
         ]);
     }
 
     public function orders()
     {
         $cartCount = Auth::user()->cartItems->count() + Auth::user()->cartMenus->count();
+        $activeOrderCount = Auth::user()->orders->whereIn('status', [1, 2])->count();
         $orders = Auth::user()->orders;
         return view('profile.index', [
             'title' => 'Profile',
             'cartCount' => $cartCount,
             'user' => Auth::user(),
-            'orders' => $orders
+            'orders' => $orders,
+            'activeOrderCount' => $activeOrderCount
         ]);
     }
 
     public function settings()
     {
         $cartCount = Auth::user()->cartItems->count() + Auth::user()->cartMenus->count();
+        $activeOrderCount = Auth::user()->orders->whereIn('status', [1, 2])->count();
         return view('profile.index', [
             'title' => 'Profile',
             'cartCount' => $cartCount,
-            'user' => Auth::user()
+            'user' => Auth::user(),
+            'activeOrderCount' => $activeOrderCount
         ]);
     }
 
@@ -68,25 +76,26 @@ class ProfileController extends Controller
         return back();
     }
 
-    public function updatePassword(Request $request){
+    public function updatePassword(Request $request)
+    {
         $validator = Validator::make($request->all(), [
-            'current_password'=> 'required',
+            'current_password' => 'required',
             'password' => 'required|min:6|confirmed',
         ]);
 
         if ($validator->fails()) {
-            foreach ($validator->errors()->toArray() as $error){
+            foreach ($validator->errors()->toArray() as $error) {
                 toastr()->error($error[0]);
             }
             return back();
         }
 
-        if(!Hash::check($request->get('current_password'),Auth::user()->getAuthPassword())){
+        if (!Hash::check($request->get('current_password'), Auth::user()->getAuthPassword())) {
             toastr()->error('Current password does not match the given input!');
             return back();
         }
 
-        if(Hash::check($request->get('password'),Auth::user()->getAuthPassword())){
+        if (Hash::check($request->get('password'), Auth::user()->getAuthPassword())) {
             toastr()->error('New password cannot be the current password!');
             return back();
         }
@@ -98,15 +107,16 @@ class ProfileController extends Controller
         return back();
     }
 
-    public function updateUserDetails(Request $request){
+    public function updateUserDetails(Request $request)
+    {
         $validator = Validator::make($request->all(), [
-            'fname'=> 'required',
+            'fname' => 'required',
             'lname' => 'required',
             'gender' => 'required:in:male,female'
         ]);
 
         if ($validator->fails()) {
-            foreach ($validator->errors()->toArray() as $error){
+            foreach ($validator->errors()->toArray() as $error) {
                 toastr()->error($error[0]);
             }
             return back();
@@ -120,7 +130,6 @@ class ProfileController extends Controller
         toastr()->success('User details updated successfully!');
         return back();
     }
-
 
 
 }
