@@ -74,6 +74,46 @@ $(window).on('load', function () {
 
     var token = document.head.querySelector('meta[name="csrf-token"]');
     window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+
+    FilePond.registerPlugin(
+        FilePondPluginFileValidateType,
+        FilePondPluginImagePreview,
+    );
+
+    const inputElement = document.getElementById('avatar');
+    const avatarFileElement = FilePond.create(inputElement, {
+        allowRevert: true,
+        required: true,
+        allowImagePreview: true,
+        instantUpload: true,
+        acceptedFileTypes: ['image/png', 'image/jpeg', 'image/bmp'],
+        onremovefile: () => {
+            document.getElementById('avatarSaveChanges').classList.add('d-none');
+        },
+        server: {
+            process: {
+                url: '/images/process',
+                method: 'POST',
+                withCredentials: false,
+                headers: {
+                    'X-CSRF-TOKEN': token.content
+                },
+                timeout: 7000,
+                onload: (response) => {
+                    document.getElementById('avatarSaveChanges').classList.remove('d-none');
+                    return response;
+                },
+            },
+            revert: {
+                url: '/images/delete',
+                headers: {
+                    'X-CSRF-TOKEN': token.content
+                },
+                timeout: 7000,
+            }
+        }
+    });
+
 });
 
 // AJAX FUNCTIONS //
@@ -147,7 +187,7 @@ function updateCartQuantity(type, id) {
         }).then(function (response) {
             if (response.data.status === 'ok') {
                 location.reload(true);
-            }else {
+            } else {
                 toastr.error(response.data.msg);
             }
             console.log(response.data);
@@ -164,7 +204,7 @@ function updateCartQuantity(type, id) {
         }).then(function (response) {
             if (response.data.status === 'ok') {
                 location.reload(true);
-            }else {
+            } else {
                 toastr.error(response.data.msg);
             }
             console.log(response.data);

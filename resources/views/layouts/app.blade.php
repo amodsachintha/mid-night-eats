@@ -22,21 +22,23 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('css/minty.min.css') }}" rel="stylesheet">
-{{--    <link href="{{ asset('css/sandstone.min.css') }}" rel="stylesheet">--}}
-{{--    <link href="{{ asset('css/united.min.css') }}" rel="stylesheet">--}}
-{{--    <link href="{{ asset('css/matiria.min.css') }}" rel="stylesheet">--}}
+    {{--    <link href="{{ asset('css/sandstone.min.css') }}" rel="stylesheet">--}}
+    {{--    <link href="{{ asset('css/united.min.css') }}" rel="stylesheet">--}}
+    {{--    <link href="{{ asset('css/matiria.min.css') }}" rel="stylesheet">--}}
     <link href="{{asset('css/toastr.min.css')}}" rel="stylesheet"/>
     <link href="{{asset('css/owl.carousel.min.css')}}" rel="stylesheet">
     <link href="{{asset('css/owl.theme.default.min.css')}}" rel="stylesheet">
     <link href="{{asset('fa/css/all.css')}}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{asset('datatables/datatables.min.css')}}"/>
     <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap-select.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/filepond.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/filepond-plugin-image-preview.css')}}">
 </head>
 <body>
 
 <div id="app">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    {{--<nav class="navbar navbar-expand-md navbar-light navbar-laravel shadow-sm">--}}
+        {{--<nav class="navbar navbar-expand-md navbar-light navbar-laravel shadow-sm">--}}
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
                 {{ config('app.name', 'Laravel') }}
@@ -73,13 +75,11 @@
 
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                <span><img src="/img/avatars/thumbnails/{{Auth::user()->avatar}}" width="35px" style="border-radius: 50%; margin-top: -7px"/></span>
+                                <span><img src="/img/avatars/thumbnails/{{Auth::user()->avatar}}" width="45px" style="border-radius: 50%; margin-top: -7px" class="img-thumbnail"/></span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
                                 <a class="dropdown-item" href="{{route('profile.index')}}">My Account</a>
-
-
 
 
                                 <a class="dropdown-item" href="{{ route('logout') }}"
@@ -106,6 +106,9 @@
 
 @include('layouts.footer')
 
+<script src="{{asset('js/filepond-plugin-image-preview.js')}}" defer></script>
+<script src="{{asset('js/filepond-plugin-file-validate-type.js')}}" defer></script>
+<script src="{{asset('js/filepond.js')}}" defer></script>
 <script src="{{asset('js/axios.min.js')}}" defer></script>
 <script src="{{asset('js/owl.carousel.min.js')}}" defer></script>
 <script src="{{asset('js/toastr.min.js')}}"></script>

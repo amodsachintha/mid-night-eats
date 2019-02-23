@@ -1,6 +1,6 @@
-<div class="card mb-3 shadow-sm">
+<div class="card mb-3 shadow">
     <div class="pt-4 pl-4 pr-4">
-        <img class="card-img-top img-thumbnail" style="border-radius: 50%" src="/img/avatars/thumbnails/{{$user->avatar}}" alt="Card image">
+        <img class="card-img-top img-thumbnail shadow" style="border-radius: 50%" src="/img/avatars/thumbnails/{{$user->avatar}}" alt="Card image">
     </div>
     <div class="card-body profile-usertitle">
         <p class="profile-usertitle-name">{{$user->fname . ' ' . $user->lname}}</p>

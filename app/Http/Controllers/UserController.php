@@ -25,8 +25,6 @@ class UserController extends Controller
             'password' => 'required|string|min:6|confirmed',
         ]);
 
-
-
         if ($validator->fails()) {
             foreach ($validator->errors()->toArray() as $error){
 //                dd($error);

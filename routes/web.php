@@ -41,3 +41,10 @@ Route::get('/profile/overview','ProfileController@index')->name('profile.index')
 Route::get('/profile/orders','ProfileController@orders')->name('profile.orders');
 Route::get('/profile/settings','ProfileController@settings')->name('profile.settings');
 Route::get('/profile/help','ProfileController@help')->name('profile.help');
+
+Route::post('/profile/avatar/upload','ProfileController@uploadAvatar')->name('profile.uploadAvatar');
+Route::post('/profile/password/update','ProfileController@updatePassword')->name('profile.updatePassword');
+Route::post('/profile/details/update','ProfileController@updateUserDetails')->name('profile.updateUserDetails');
+
+Route::post('/images/process','ImageController@process')->name('image.process');
+Route::delete('/images/delete','ImageController@delete')->name('image.delete');
