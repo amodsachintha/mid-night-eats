@@ -114,6 +114,10 @@ $(window).on('load', function () {
         }
     });
 
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+
 });
 
 // AJAX FUNCTIONS //
@@ -135,6 +139,8 @@ function addItemToCart(id) {
             toastr.error('Operation failed: ' + response.data.msg);
         }
         console.log(response.data);
+    }).catch(function (error) {
+        toastr.warning('Please login or create account to add items to cart! ☺️');
     });
 }
 
@@ -149,6 +155,8 @@ function addMenuToCart(id) {
             toastr.error('Operation failed: ' + response.data.msg);
         }
         console.log(response.data);
+    }).catch(function (error) {
+        toastr.warning('Please login or create account to add items to cart! ☺️');
     });
 }
 
@@ -215,3 +223,23 @@ function updateCartQuantity(type, id) {
     }
 }
 
+function markOrderAsComplete(id, progress_bar_id, button_id) {
+    axios.post('/order/markascomplete', {
+        id: id
+    }).then(function (response) {
+        if (response.data.status === 'ok') {
+            toastr.success(response.data.msg);
+            const progressBar = document.getElementById(progress_bar_id);
+            progressBar.style.width = '100%';
+            progressBar.setAttribute('aria-valuenow','100');
+            progressBar.classList.remove('bg-info');
+            progressBar.classList.remove('progress-bar-striped');
+            progressBar.classList.add('bg-success');
+
+            const button = document.getElementById(button_id);
+            button.classList.add('d-none');
+        } else {
+            toastr.error(response.data.msg);
+        }
+    });
+}

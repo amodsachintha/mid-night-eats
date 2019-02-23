@@ -6,7 +6,7 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
+    <link href="https://fonts.googleapis.com/css?family=Laila|Handlee" rel="stylesheet">
     <title>{{ isset($title) ? $title : config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
@@ -33,6 +33,23 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap-select.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/filepond.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/filepond-plugin-image-preview.css')}}">
+
+    <style>
+        .fishes
+        {
+            position:absolute;
+            top: 65px;
+            left: -35px;
+            z-index: 1;
+        }
+        .fish
+        {
+            position:absolute;
+            top: -60px;
+            left: 117px;
+            z-index: 2;
+        }
+    </style>
 </head>
 <body>
 

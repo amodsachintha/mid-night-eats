@@ -67,9 +67,9 @@
                             </div>
                             <div class="form-group">
                                 <label for="gender">Gender</label>
-                                <select class="form-control" id="gender" name="gender">
-                                    <option value="male" {{$user->gender === 'male' ? 'selected' : ''}}>Male</option>
-                                    <option value="female" {{$user->gender === 'female' ? 'selected' : ''}}>Female</option>
+                                <select class="form-control selectpicker" id="gender" name="gender">
+                                    <option value="male" data-icon="far fa-male" {{$user->gender === 'male' ? 'selected' : ''}}>Male</option>
+                                    <option value="female" data-icon="far fa-female" {{$user->gender === 'female' ? 'selected' : ''}}>Female</option>
                                 </select>
                             </div>
                         </fieldset>

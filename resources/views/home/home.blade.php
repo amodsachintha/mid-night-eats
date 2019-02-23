@@ -82,9 +82,9 @@
                                         <p class="card-text">{{$item->description_sm}}</p>
                                     </div>
                                     <div class="card-footer justify-content-between d-flex">
-                                        <a href="#" class="btn btn-link text-info"><i class="fal fa-eye fa-2x"></i></a>
+                                        <a href="{{route('item.show',$item->id)}}" class="btn btn-link text-info" data-toggle="tooltip" data-placement="bottom" title="View details 👀"><i class="fal fa-eye fa-2x"></i></a>
                                         <h3><span class="badge badge-secondary">Rs.{{number_format($item->price,2)}}</span></h3>
-                                        <a class="btn btn-link text-success" onclick="addItemToCart('{{$item->id}}')"><i class="fal fa-shopping-cart fa-2x"></i></a>
+                                        <a class="btn btn-link text-success" onclick="addItemToCart('{{$item->id}}')" data-toggle="tooltip" data-placement="bottom" title="Add to cart"><i class="fal fa-shopping-cart fa-2x"></i></a>
                                     </div>
                                 </div>
                             @endforeach
@@ -111,9 +111,9 @@
                                         </ul>
                                     </div>
                                     <div class="card-footer justify-content-between d-flex">
-                                        <a class="btn btn-link text-info"><i class="fal fa-eye fa-2x"></i></a>
+                                        <a class="btn btn-link text-info" data-toggle="tooltip" data-placement="bottom" title="View details 👀"><i class="fal fa-eye fa-2x"></i></a>
                                         <h3><span class="badge badge-secondary">Rs.{{number_format($menu->price,2)}}</span></h3>
-                                        <a class="btn btn-link text-success" onclick="addMenuToCart('{{$menu->id}}')"><i class="fal fa-shopping-cart fa-2x"></i></a>
+                                        <a class="btn btn-link text-success" onclick="addMenuToCart('{{$menu->id}}')" data-toggle="tooltip" data-placement="bottom" title="Add to cart"><i class="fal fa-shopping-cart fa-2x"></i></a>
                                     </div>
                                 </div>
                             @endforeach

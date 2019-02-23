@@ -47,9 +47,11 @@
                                                         <p>
                                                             <label for="cartItem-{{$cartItem->id}}-quantity" class="text-muted">Quantity: </label>
                                                             <input id="cartItem-{{$cartItem->id}}-quantity" type="number" min="1" max="50" style="border-radius: 5px" value="{{$cartItem->quantity}}">
-                                                            <button class="btn btn-sm btn-outline-warning" onclick="updateCartQuantity('item','{{$cartItem->id}}')"><i class="far fa-sync-alt"></i>
+                                                            <button class="btn btn-sm btn-outline-warning" onclick="updateCartQuantity('item','{{$cartItem->id}}')" data-toggle="tooltip"
+                                                                    data-placement="bottom" title="Update quantity"><i class="far fa-sync-alt"></i>
                                                             </button>
-                                                            <button class="btn btn-sm btn-outline-danger" onclick="if(confirm('Are you sure?')) {removeItemFromCart('{{$cartItem->id}}')}"><i
+                                                            <button class="btn btn-sm btn-outline-danger" onclick="if(confirm('Are you sure?')) {removeItemFromCart('{{$cartItem->id}}')}"
+                                                                    data-toggle="tooltip" data-placement="bottom" title="Remove from cart"><i
                                                                         class="far fa-trash-alt"></i></button>
                                                         </p>
                                                         <div class="d-flex w-100 justify-content-between">
@@ -105,9 +107,11 @@
                                                         <p>
                                                             <label for="cartMenu-{{$cartMenu->id}}-quantity" class="text-muted">Quantity: </label>
                                                             <input id="cartMenu-{{$cartMenu->id}}-quantity" type="number" min="1" max="50" style="border-radius: 5px" value="{{$cartMenu->quantity}}">
-                                                            <button class="btn btn-sm btn-outline-warning" onclick="updateCartQuantity('menu','{{$cartMenu->id}}')"><i class="far fa-sync-alt"></i>
+                                                            <button class="btn btn-sm btn-outline-warning" onclick="updateCartQuantity('menu','{{$cartMenu->id}}')" data-toggle="tooltip"
+                                                                    data-placement="bottom" title="Update quantity"><i class="far fa-sync-alt"></i>
                                                             </button>
-                                                            <button class="btn btn-sm btn-outline-danger" onclick="if(confirm('Are you sure?'))removeMenuFromCart('{{$cartMenu->id}}')"><i
+                                                            <button class="btn btn-sm btn-outline-danger" onclick="if(confirm('Are you sure?'))removeMenuFromCart('{{$cartMenu->id}}')"
+                                                                    data-toggle="tooltip" data-placement="bottom" title="Remove from cart"><i
                                                                         class="far fa-trash-alt"></i></button>
                                                         </p>
                                                         <div class="d-flex w-100 justify-content-between">

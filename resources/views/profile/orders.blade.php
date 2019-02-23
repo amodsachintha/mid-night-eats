@@ -36,7 +36,9 @@
                                     $paymentStatusHtml = "<span class='badge badge-pill badge-danger text-dark'>cancelled</span>";
                                     }
                                 @endphp
-                                <td class="text-center"><span class="badge badge-dark">{{$order->payment_type}} </span> {!! $paymentStatusHtml !!}</td>
+                                <td class="text-center"><span class="badge badge-dark" data-toggle="tooltip" data-placement="top"
+                                                              title="{{$order->payment_type == 'CC'? 'Credit/Debit Card' : 'Cash on Delivery'}}">{{$order->payment_type}} </span> {!! $paymentStatusHtml !!}
+                                </td>
                                 <td>Rs. {{number_format($order->amount,2)}}</td>
                                 <td>{{$order->created_at->toFormattedDateString()}}</td>
                                 @php
